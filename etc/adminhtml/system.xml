@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+
+	<system>
+
+		<section id="promo">
+
+			<group id="discounturl" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+
+				<label>Auto Apply Coupon Code URL Settings</label>
+
+				<field id="enabled" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Enabled</label>
+					<comment>If the discount URL module is enabled, you'll be able to apply discount codes automatically via URL. Disable this if you have other modules running that implement similar behavior or that might conflict.</comment>
+					<validate>required-entry</validate>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+
+				<field id="url_param" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>URL Parameter</label>
+					<comment>This is the query string parameter that will contain a coupon code in the URL. For example, if this value is "discount", then https://store.url/path/to/page?discount=CODE will set the coupon code to "CODE." If this value isn't set, we'll use the hardcoded default specified by ViewModel\Cookie::DEFAULT_URL_PARAMETER. If URL Path is enabled, then this will also be the bit that should be appended to the end of the URL path (example: https://store.url/path/to/page/discount/CODE)</comment>
+				</field>
+
+				<field id="url_path_enabled" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>URL Path Enabled</label>
+					<comment>If this is turned on, then not only can a coupon code be identified and applied via query string, but also by a bit appended to the end of the URL path. For example, if URL Parameter is set to "discount", then the URL https://store.url/path/to/page/discount/CODE would apply the discount code "CODE" and route internally to https://store.url/path/to/page. This feature is a bit experimental and requires some hackery, so if you turn it on, make sure to test your entire site thoroughly to ensure there's no breakage before relying on it in production. This feature preserves the URL in the browser and doesn't redirect. This will only function if the implementation of \Magento\Framework\App\RequestInterface used to process the request has implemented the setPathInfo() method (I'm pretty sure this will be true for everyone, or at least *almost* everyone.)</comment>
+					<validate>required-entry</validate>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+
+				<field id="cookie_lifetime" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Cookie Lifetime</label>
+					<comment>When a coupon code comes in through a URL, we set it in a cookie so that we can remember it for the entire session. This value determines how long that cookie should stay set before it expires (in seconds.) Value must be 0 or greater (0 means the cookie will remain alive until the browser window or tab remains open.) If this value isn't set, we'll use the hardcoded default specified by ViewModel\Cookie::COOKIE_LIFETIME.</comment>
+					<validate>validate-zero-or-greater</validate>
+				</field>
+
+			</group>
+
+		</section>
+
+	</system>
+
+</config>

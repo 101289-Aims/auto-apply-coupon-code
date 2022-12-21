@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+
+	<event name="controller_action_predispatch">
+		<observer name="aimsinfosoft_autoapplycouponcode_controller_action_predispatch" instance="Aimsinfosoft\AutoApplyCouponCode\Observer\Couponcodeurl\ControllerFrontSendResponseBefore" />
+	</event>
+
+	<event name="checkout_cart_save_after">
+		<observer name="aimsinfosoft_autoapplycouponcode_checkout_cart_save_after" instance="Aimsinfosoft\AutoApplyCouponCode\Observer\Couponcodeurl\CheckoutCartSaveAfter" />
+	</event>
+
+	<event name="sales_order_place_after">
+		<observer name="aimsinfosoft_autoapplycouponcode_sales_order_place_after" instance="Aimsinfosoft\AutoApplyCouponCode\Observer\Couponcodeurl\SalesOrderPlaceAfter" />
+	</event>
+
+</config>
+

@@ -1,0 +1,23 @@
+{
+  "name": "aimsinfosoft/autoapplycouponcode",
+  "description": "An advance option for customer and store owners to auto apply coupon code to purchase order.",
+  "require": {
+    "php": "~7.3.0||~7.4.0",
+  },
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Aimsinfosoft\\AutoApplyCouponCode\\": ""
+    }
+  },
+  "authors": [
+    {
+      "name": "Aimsinfosoft",
+      "role": "Anant Prajapati<anantprajapati65@gmail.com>"
+    }
+  ]
+}
