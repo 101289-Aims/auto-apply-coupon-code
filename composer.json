@@ -1,8 +1,9 @@
 {
   "name": "aimsinfosoft/autoapplycouponcode",
-  "description": "An advance option for customer and store owners to auto apply coupon code to purchase order.",
+  "description": "This module is created to help both store owners and customers to automatically apply coupon code to your order purchase at ease.",
   "require": {
-    "php": "~7.3.0||~7.4.0",
+    "php": "~8.1.0||~8.2.0",
+    "Aimsinfosoft/Base": "~1.0.0"
   },
   "type": "magento2-module",
   "version": "1.0.0",
@@ -17,7 +18,8 @@
   "authors": [
     {
       "name": "Aimsinfosoft",
-      "role": "Anant Prajapati<anantprajapati65@gmail.com>"
+      "email": "info@aimsinfosoft.com",
+      "homepage": "https://aimsinfosoft.com"
     }
   ]
 }

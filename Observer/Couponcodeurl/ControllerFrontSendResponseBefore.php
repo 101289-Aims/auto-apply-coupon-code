@@ -2,7 +2,11 @@
 
 namespace Aimsinfosoft\AutoApplyCouponCode\Observer\Couponcodeurl;
 
-class ControllerFrontSendResponseBefore implements \Magento\Framework\Event\ObserverInterface {
+
+use Magento\Framework\Event\Observer;
+use Magento\Framework\Event\ObserverInterface;
+
+class ControllerFrontSendResponseBefore implements ObserverInterface {
 
 	/**
 	 * @var \Aimsinfosoft\AutoApplyCouponCode\ViewModel\Config
@@ -49,7 +53,7 @@ class ControllerFrontSendResponseBefore implements \Magento\Framework\Event\Obse
 	 *
 	 * @return void
 	 */
-	public function execute(\Magento\Framework\Event\Observer $observer): void {
+	public function execute(Observer $observer): void {
 
 		if ($this->config->isEnabled()) {
 

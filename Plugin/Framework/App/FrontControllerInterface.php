@@ -93,6 +93,7 @@ class FrontControllerInterface {
 			// implemented the setPathInfo method (in most cases, this
 			// should be true, but the interface doesn't require it to be
 			// implemented, so better safe than sorry!)
+
 			if (
 				!$coupon &&
 				$this->config->isUrlPathEnabled() &&
@@ -100,7 +101,6 @@ class FrontControllerInterface {
 			) {
 
 				$requestPath = $this->request->getPathInfo();
-
 				// If a coupon code was included in the URL, fix the URL
 				// after extracting it so that we can continue to route normally
 				if (preg_match("#/$queryParameter/([^/]+?)/*$#", $requestPath, $matches)) {
@@ -170,7 +170,6 @@ class FrontControllerInterface {
 								$successMessage .= " per customer)";
 							}
 
-							
 							$this->registry->register('aimsinfosoft_autoapplycouponcode_coupon', $coupon);
 							$this->registry->register('aimsinfosoft_autoapplycouponcode_message', [
 								'message' => __($successMessage),

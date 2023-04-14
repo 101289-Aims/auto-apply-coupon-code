@@ -58,7 +58,7 @@ class Cookie {
 
 		$cookieLifetime = $this->config->getCookieLifetime();
 		$metadata = $this->cookieMetadataFactory->createPublicCookieMetadata();
-
+	
 		$metadata->setPath($this->sessionManager->getCookiePath());
 		$metadata->setDomain($this->sessionManager->getCookieDomain());
 		$metadata->setHttpOnly(false);
